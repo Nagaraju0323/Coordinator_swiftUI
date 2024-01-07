@@ -6,90 +6,47 @@
 //
 
 import SwiftUI
-
-
-//struct ContentView: View {
-//    @EnvironmentObject var router: NavigationViewRouter
-//    var coordinator: AppCoordinator
-//    @State private var navigationStack: [IdentifiableAnyView] = []
-//
-//    init(coordinator: AppCoordinator) {
-//        self.coordinator = coordinator
-//    }
-//
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                Image(systemName: "globe")
-//                    .imageScale(.large)
-//                    .foregroundColor(.blue) // Use foregroundColor instead of foregroundStyle
-//                Text("Hello, world!")
-//
-//                // Use a NavigationLink to navigate to the detail view
-//                Text("ContentView updated with navigation stack: \(String(describing: router.rootView) ?? "")")
-//                    .onAppear {
-//                        print("ContentView appeared with navigation stack: \(String(describing: router.rootView) ?? "")")
-//                    }
-//
-//                Button("Update Navigation Stack") {
-//                    // Call the push method to add a new view to the stack
-//                    let detailView = DetailView()
-//                    router.push(content: detailView, animated: true)
-//
-//                    // Update the local binding to trigger a view update
-//                    navigationStack = router.rootView ?? []
-//                }
-//
-//                
-//                
-//            }
-//            .padding()
-//        }
-//    }
-//}
-
-
 struct ContentView: View {
     @EnvironmentObject var router: NavigationViewRouter
     var coordinator: AppCoordinator
 
+    @State private var navigationActive: Bool = false
+
     var body: some View {
         NavigationView {
             VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.blue)
                 Text("Hello, world!")
 
-                NavigationLink(destination: DetailView(), isActive: $router.hasDestination) {
+                NavigationLink(destination: DetailView(), isActive: $navigationActive) {
                     EmptyView()
+                        .onAppear {
+                            print("NavigationLink isActive: \(navigationActive)")
+                        }
                 }
-                .hidden()
-
-                Text("ContentView updated with navigation stack: \(String(describing: router.rootView) ?? "")")
 
                 Button("Update Navigation Stack") {
                     coordinator.navigateToDetail()
+                    navigationActive = coordinator.hasDestination
+                    print("hasDestination after tapping button: \(coordinator.hasDestination)")
                 }
+                .padding()
             }
-            .padding()
         }
+        .environmentObject(NavigationViewRouter())
     }
 }
-//}
-
 
 
 struct DetailView: View {
     var body: some View {
         VStack {
-            
-            Text("nagaraju!")
+            Text("DetailView")
         }
-        .padding()
+        .onAppear {
+            print("DetailView appeared")
+        }
     }
 }
-
 
 //#Preview {
 //    ContentView()

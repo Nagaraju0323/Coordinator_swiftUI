@@ -15,13 +15,11 @@ struct SwiftCoordinatorApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(coordinator: AppCoordinator(routerss: NavigationViewRouter(), router: NavigationViewRouter(), window: UIWindow()))
-                            .environmentObject(NavigationViewRouter())
-            
-            
+            let routerss = NavigationViewRouter()
+            ContentView(coordinator: AppCoordinator(routerss: routerss, router: routerss, window: UIWindow()))
+                .environmentObject(routerss)
         }
     }
-    
 }
 
 

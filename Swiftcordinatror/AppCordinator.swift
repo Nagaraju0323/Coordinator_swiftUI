@@ -10,17 +10,20 @@ import SwiftUI
 
 
 class AppCoordinator: ObservableObject, Coordinator {
+    
+    @Published var hasDestination: Bool = false
     var router: Router
     var routerss: NavigationViewRouter
     var children: [Coordinator] = []
     var window: UIWindow?
+    
 
     init(routerss: NavigationViewRouter, router: Router, window: UIWindow?) {
         self.router = router
         self.window = window
         self.routerss = routerss
     }
-
+    
     func start() -> some View {
         let contentView = ContentView(coordinator: self)
             .environmentObject(routerss)
@@ -36,23 +39,22 @@ class AppCoordinator: ObservableObject, Coordinator {
             print("Initial Root View: \(String(describing: router.rootView))")
         }
 
-        let hostingController = UIHostingController(rootView: contentView)
+        // Wrap the contentView in a NavigationView
+        let rootView = NavigationView {
+            contentView
+        }
 
-        let navigationController = UINavigationController(rootViewController: hostingController)
-
-        window?.rootViewController = navigationController
-
-        window?.makeKeyAndVisible()
-
-        // Return a dummy view, or you can return the actual rootView
-        return EmptyView()
+        // Return the rootView
+        return rootView
     }
+    
+    
 
     func navigateToDetail() {
-        
+        print("Navigating to detail view...")
         let detailView = DetailView()
-        routerss.push(content: detailView, animated: true)
-//        routerss.hasDestination = true
+        router.push(content: detailView, animated: true)
+        hasDestination = true
     }
 
     func present(animated: Bool, onDismissed: (() -> Void)?) {

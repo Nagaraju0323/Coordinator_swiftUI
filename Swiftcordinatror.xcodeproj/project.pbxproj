@@ -19,7 +19,6 @@
 		E6E09AA92B49AE4900AFFA49 /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E09AA82B49AE4900AFFA49 /* AppCordinator.swift */; };
 		E6E09AAB2B49BE8000AFFA49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E09AAA2B49BE8000AFFA49 /* AppDelegate.swift */; };
 		E6E09AAD2B49BEE600AFFA49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E09AAC2B49BEE500AFFA49 /* SceneDelegate.swift */; };
-		E6E09AB12B49C66C00AFFA49 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E09AB02B49C66C00AFFA49 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +54,6 @@
 		E6E09AA82B49AE4900AFFA49 /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
 		E6E09AAA2B49BE8000AFFA49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6E09AAC2B49BEE500AFFA49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E6E09AB02B49C66C00AFFA49 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,16 +104,14 @@
 		E61C80382B48617000C22149 /* Swiftcordinatror */ = {
 			isa = PBXGroup;
 			children = (
+				E6B1DE9A2B4A6F3E00057FA6 /* App */,
 				E61C80392B48617000C22149 /* SwiftcordinatrorApp.swift */,
-				E6E09AAC2B49BEE500AFFA49 /* SceneDelegate.swift */,
 				E61C803B2B48617000C22149 /* ContentView.swift */,
-				E6E09AB02B49C66C00AFFA49 /* DetailView.swift */,
 				E61C80722B48685B00C22149 /* Cordinator.swift */,
 				E6E09AA82B49AE4900AFFA49 /* AppCordinator.swift */,
 				E6E09AA42B498DEF00AFFA49 /* Router.swift */,
 				E61C803D2B48617100C22149 /* Assets.xcassets */,
 				E61C803F2B48617100C22149 /* Preview Content */,
-				E6E09AAA2B49BE8000AFFA49 /* AppDelegate.swift */,
 			);
 			path = Swiftcordinatror;
 			sourceTree = "<group>";
@@ -143,6 +139,15 @@
 				E61C80562B48617200C22149 /* SwiftcordinatrorUITestsLaunchTests.swift */,
 			);
 			path = SwiftcordinatrorUITests;
+			sourceTree = "<group>";
+		};
+		E6B1DE9A2B4A6F3E00057FA6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E6E09AAA2B49BE8000AFFA49 /* AppDelegate.swift */,
+				E6E09AAC2B49BEE500AFFA49 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +281,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61C80732B48685B00C22149 /* Cordinator.swift in Sources */,
-				E6E09AB12B49C66C00AFFA49 /* DetailView.swift in Sources */,
 				E6E09AA52B498DEF00AFFA49 /* Router.swift in Sources */,
 				E61C803C2B48617000C22149 /* ContentView.swift in Sources */,
 				E6E09AAB2B49BE8000AFFA49 /* AppDelegate.swift in Sources */,
